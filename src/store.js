@@ -17,5 +17,16 @@ export default new Vuex.Store({
   },
   actions: {
 
+  },
+  getters: {
+    saleProducts: (state) => {
+      const saleProducts = state.prodacts.map(prodact => {
+        return{
+          name: 'sale' + prodact.name + '(50%)',
+          price: prodact.price / 2
+        }
+      });
+      return saleProducts;
+    }
   }
 })
