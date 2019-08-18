@@ -12,9 +12,9 @@
 
 <script>
 export default {
-  props:['prodacts'],
-  data(){
-    return{
+  computed:{
+    prodacts(){
+      return this.$store.state.prodacts
     }
   }
 }

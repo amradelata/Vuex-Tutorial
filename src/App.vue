@@ -5,8 +5,8 @@
       <router-link to="/about">About</router-link>
     </div>
     <router-view/> -->
-    <productlistOne v-bind:prodacts="prodacts"/>
-    <productlistTwo v-bind:prodacts="prodacts"/>
+    <productlistOne/>
+    <productlistTwo/>
   </div>
 </template>
 
