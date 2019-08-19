@@ -12,14 +12,11 @@ export default new Vuex.Store({
       {name: 'red shells', price: 80}
     ]
   },
-  mutations: {
-
-  },
   getters: {
     saleProducts: state => {
       const saleProducts = state.prodacts.map(prodact => {
         return{
-          name: 'sale' + prodact.name + '(50%)',
+          name: 'sale ' + prodact.name + '(50%)',
           price: prodact.price / 2
         }
       });
@@ -29,7 +26,7 @@ export default new Vuex.Store({
   mutations:{
     reducePrice: state => {
       state.prodacts.forEach(prodact => {
-        prodact.price -= 10
+        prodact.price -= 2
       });
     }
   },

@@ -13,23 +13,36 @@
 </template>
 
 <script>
+import {mapActions} from 'vuex';
+import {mapGetters} from 'vuex';
+import {mapMutations} from 'vuex';
 export default {
   computed:{
-    prodacts(){
-      return this.$store.state.prodacts 
-    },
-    saleProducts(){
-      return this.$store.getters.saleProducts
-    }
+
+    // 
+    // saleProducts(){
+    //   return this.$store.getters.saleProducts
+    // },
+
+      // if you need to get mor than one Getters or data or API you ned to modefay Getters like this 
+      // import {mapGetters} from 'vuex';  
+    ...mapGetters([  //<-----  and define it here 
+      'saleProducts' //<-----  and write the name of API hear 
+
+    ])
   },
   methods:{
-    reducePrice(){
-      // this.$store.state.prodacts.forEach(prodact => {
-      //   prodact.price -= 1
-      // });
-      // this.$store.commit('reducePrice');  // mutations
-      this.$store.dispatch('reducePrice');  //actions run after 2s
-    }
+    ...mapMutations([
+      'reducePrice'
+    ])
+    // reducePrice(){
+    //   // this.$store.state.prodacts.forEach(prodact => {
+    //   //   prodact.price -= 1
+    //   // });
+    //   // this.$store.commit('reducePrice');  // mutations
+    //   // this.$store.dispatch('reducePrice');  //actions run after 2s
+      
+    // }
   }
 }
 </script>
