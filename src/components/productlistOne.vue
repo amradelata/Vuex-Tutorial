@@ -5,10 +5,10 @@
     <li v-for="prodact in saleProducts">
       <span class="name">{{prodact.name}}</span>
       <span class="price">{{prodact.price}}$</span>
-      
-      
     </li>
 </ul>
+<button @click="reducePrice">reduce price</button>
+  
   </div>
 </template>
 
@@ -20,6 +20,14 @@ export default {
     },
     saleProducts(){
       return this.$store.getters.saleProducts
+    }
+  },
+  methods:{
+    reducePrice(){
+      // this.$store.state.prodacts.forEach(prodact => {
+      //   prodact.price -= 1
+      // });
+      this.$store.commit('reducePrice');
     }
   }
 }

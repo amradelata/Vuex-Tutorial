@@ -19,7 +19,7 @@ export default new Vuex.Store({
 
   },
   getters: {
-    saleProducts: (state) => {
+    saleProducts: state => {
       const saleProducts = state.prodacts.map(prodact => {
         return{
           name: 'sale' + prodact.name + '(50%)',
@@ -27,6 +27,13 @@ export default new Vuex.Store({
         }
       });
       return saleProducts;
+    }
+  },
+  mutations:{
+    reducePrice: state => {
+      state.prodacts.forEach(prodact => {
+        prodact.price -= 1
+      });
     }
   }
 })
