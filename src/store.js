@@ -15,9 +15,6 @@ export default new Vuex.Store({
   mutations: {
 
   },
-  actions: {
-
-  },
   getters: {
     saleProducts: state => {
       const saleProducts = state.prodacts.map(prodact => {
@@ -32,8 +29,15 @@ export default new Vuex.Store({
   mutations:{
     reducePrice: state => {
       state.prodacts.forEach(prodact => {
-        prodact.price -= 1
+        prodact.price -= 10
       });
     }
-  }
+  },
+  actions: {
+    reducePrice: contex =>{  //contex cant to be anything
+      setTimeout(function(){
+        contex.commit('reducePrice')
+      },2000)
+    }
+  },
 })
